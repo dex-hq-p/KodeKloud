@@ -10,3 +10,5 @@ thor@jump-host ~$ kubectl get pods
 NAME            READY   STATUS    RESTARTS   AGE
 dev-nginx-pod   1/1     Running   0          9s
 ```
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.6/manifests/operator-crds.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.7/manifests/operator-crds.yaml
