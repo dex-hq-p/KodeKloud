@@ -6,5 +6,5 @@ Your task is to grant executable permissions to the /tmp/xfusioncorp.sh script o
 
 ```
 
-
+chmod a+rx /tmp/xfusioncorp.sh
 ```
