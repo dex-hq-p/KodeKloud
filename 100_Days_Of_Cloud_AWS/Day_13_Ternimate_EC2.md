@@ -1,0 +1,5 @@
+###
+
+```
+Delete(Ternimate) EC2
+```
