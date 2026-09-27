@@ -15,5 +15,4 @@ resource "aws_ebs_snapshot" "nautilus_snapshot" {
     Name = "nautilus-vol-ss"
   }
 }
-kubectl run time-check --namespace=devops --image=busybox:latest --dry-run=client -o yaml --restart=Never --command -- sleep 3600 > time-check.yaml
 
