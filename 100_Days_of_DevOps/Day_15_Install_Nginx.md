@@ -1,0 +1,20 @@
+###
+
+```
+a. Install nginx on the LBR (load balancer) server if it is not already installed.
+
+
+b. Configure load-balancing with the http context making use of all App Servers. Ensure that you update only the main Nginx configuration file located at /etc/nginx/nginx.conf.
+
+
+c. Make sure you do not update the apache port that is already defined in the apache configuration on all app servers, also make sure apache service is up and running on all the app servers.
+
+
+d. Once done, you can access the website by running curl http://stlb01:80 in the terminal.
+
+
+```
+
+```
+
+```
