@@ -1,0 +1,53 @@
+## node controlplane
+Step 1: Sửa version từ 36 lên 37
+vi /etc/apt/sources.list.d/kubernetes.list
+Step 2: Update lib mới và check version hiện tại có fetch được ver1.37 về được k
+sudo apt update
+sudo apt-cache madison kubeadm
+
+Step 3: tải bản package 1.37 về
+sudo apt-mark unhold kubeadm && \
+sudo apt-get update && sudo apt-get install -y kubeadm='1.37.x-*' && \
+sudo apt-mark hold kubeadm
+
+Step 4: kiem tra version và check plan, apply (có thể mất khoảng 5p)
+kubeadm version
+sudo kubeadm upgrade plan
+sudo kubeadm upgrade apply v1.37.x
+
+### Các controlplan khác chỉ càn dùng lệnh
+sudo kubeadm upgrade node
+
+###
+sudo apt-mark unhold kubelet kubectl && \
+sudo apt-get update && sudo apt-get install -y kubelet='1.37.x-*' kubectl='1.37.x-*' && \
+sudo apt-mark hold kubelet kubectl
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+
+### Worker node
+Step 1: Sửa version từ 36 lên 37
+vi /etc/apt/sources.list.d/kubernetes.list
+Step 2: Update lib mới và check version hiện tại có fetch được ver1.37 về được k
+sudo apt update
+sudo apt-cache madison kubeadm
+##
+sudo apt-mark unhold kubeadm kubectl && \
+sudo apt-get update && sudo apt-get install -y kubeadm='1.37.x-*' kubectl='1.37.x-*' && \
+sudo apt-mark hold kubeadm kubectl
+sudo kubeadm upgrade node
+##
+kubectl drain worker-1 --ignore-daemonsets
+sudo apt-mark unhold kubelet && \
+sudo apt-get update && sudo apt-get install -y kubelet='1.37.x-*' && \
+sudo apt-mark hold kubelet
+sudo kubeadm upgrade node
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
+kubectl uncordon worker-1
+
+
+
+
+
+

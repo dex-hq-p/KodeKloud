@@ -1,0 +1,7 @@
+ 1230  k create ns secure
+ 1234  k run frontend --image busybox --labels=app=frontend -n secure
+ 1235  k run backend --image busybox --labels=app=backend -n secure
+ 1236  k run database --image busybox --labels=app=database -n secure
+
+
+ 

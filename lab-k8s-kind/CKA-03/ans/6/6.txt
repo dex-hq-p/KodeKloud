@@ -1,0 +1,5 @@
+k label nodes dex-cluster-worker2 disk=ssd environment=production 
+
+k get nodes -l disk=ssd,environment=production
+
+

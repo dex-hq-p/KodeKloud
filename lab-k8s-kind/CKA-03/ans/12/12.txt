@@ -1,0 +1,16 @@
+### Kiem tra cac pod static hoat dong tot 
+kubectl get pods -n kube-system -l k8s-app=kube-dns
+
+### Check error
+k describe pods -n frontend xxx
+
+### Sua
+k edit pods -n frontend xxx
+or
+k get pods -n frontend xxx -oyaml > xxx.yaml
+
+### update
+k replace --force -f xxx.yaml 
+
+### dns 
+kubectl run dns-test --rm -it --image=busybox -n frontend -- nslookup api-service.backend.svc.cluster.local

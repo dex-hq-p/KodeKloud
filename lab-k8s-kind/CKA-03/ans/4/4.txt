@@ -1,0 +1,14 @@
+tranminhhieu@mac 3 % kgn -owide
+NAME                        STATUS   ROLES           AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION CONTAINER-RUNTIME
+dex-cluster-control-plane   Ready    control-plane   6h25m   v1.37.0   172.18.0.4    <none>        Debian GNU/Linux 13 (trixie)   6.10.14-linuxkit (arm64) containerd://2.3.4
+dex-cluster-worker          Ready    <none>          6h25m   v1.37.0   172.18.0.2    <none>        Debian GNU/Linux 13 (trixie)   6.10.14-linuxkit (arm64) containerd://2.3.4
+dex-cluster-worker2         Ready    <none>          6h25m   v1.37.0   172.18.0.3    <none>        Debian GNU/Linux 13 (trixie)   6.10.14-linuxkit (arm64) containerd://2.3.4
+
+
+ETCDCTL_API=3 etcdctl --endpoints 172.18.0.4:2379 \
+  --cert=/etc/kubernetes/pki/etcd/server.crt \
+  --key=/etc/kubernetes/pki/etcd/server.key \
+  --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+   snapshot save /opt/backup/etcd-snapshot.db
+
+etcdutl --write-out=table snapshot status /opt/backup/etcd-snapshot.db

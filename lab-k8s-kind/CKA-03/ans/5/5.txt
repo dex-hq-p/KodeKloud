@@ -1,0 +1,6 @@
+ 1124   k create production
+ 1127  k create deployment payment-api --image nginx:1.27 --replicas 3 -n production
+ 1129  k set image deployments -n production payment-api nginx=nginx:1.28
+ 1131  k rollout history deployment -n production payment-api
+ 1135  k rollout undo deployment -n production payment-api --to-revision 1
+ 1136  k describe -n production deployments.apps payment-api| grep -i -A4 image

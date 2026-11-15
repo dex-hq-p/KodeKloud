@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: scheduled-app
+  name: scheduled-app
+spec:
+  containers:
+  - args:
+    - client
+    image: nginx:latest
+    name: scheduled-app
+  nodeSelector:
+    disk: ssd
+  tolerations:
+    - key: "dedicated"
+      operator: "Equal"
+      value: "backend"
+      effect: "NoSchedule"

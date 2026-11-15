@@ -1,0 +1,10 @@
+alias k=kubectl
+alias kgp='k get pods '
+alias kgn='k get nodes '
+alias kgd='k get deploys '
+alias kgs='k get svc'
+
+alias ka='k apply -f '
+alias krp='k run --dry-run=client -oyaml --image '
+alias krd='k create deployments --dry-run=client -oyaml --image '
+alias kn='k config set-context --current --namespace '

@@ -1,0 +1,1 @@
+k create deployment web --image busybox --replicas 3
