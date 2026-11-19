@@ -1,0 +1,10 @@
+{
+  "name": "after-file-edit",
+  "event": "afterFileEdit",
+  "steps": [
+    "format changed files",
+    "run targeted lint",
+    "report diagnostics"
+  ],
+  "failOnError": true
+}

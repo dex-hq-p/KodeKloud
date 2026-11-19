@@ -1,0 +1,22 @@
+{
+  "servers": {
+    "jira": {
+      "url": "${JIRA_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${JIRA_MCP_TOKEN}"
+      }
+    },
+    "bitbucket": {
+      "url": "${BITBUCKET_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${BITBUCKET_MCP_TOKEN}"
+      }
+    },
+    "confluent": {
+      "url": "${CONFLUENT_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${CONFLUENT_MCP_TOKEN}"
+      }
+    }
+  }
+}

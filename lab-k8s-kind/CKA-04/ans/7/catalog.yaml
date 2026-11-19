@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -10,24 +11,26 @@ spec:
   selector:
     matchLabels:
       app: catalog-api
-  strategy: {}
   template:
     metadata:
       labels:
         app: catalog-api
     spec:
       containers:
-      - image: busybox
-        name: busybox
-        resources:
-          requests:
-	          memory: "256Mi"
-	          cpu: "200m"
-        livenessProbe:
-          httpGet:
-	        path: /health
-	        port: 8080
-        readinessProbe:
-          httpGet:
-	          path: /ready
-	          port: 8080
+        - image: busybox
+          name: busybox
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "512Mi"
+              cpu: "400m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080

@@ -1,0 +1,10 @@
+{
+  "name": "before-test",
+  "event": "beforeTest",
+  "steps": [
+    "validate required environment variables",
+    "check test database or broker availability",
+    "ensure test data is isolated"
+  ],
+  "failOnError": true
+}
