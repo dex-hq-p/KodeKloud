@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maria-deployment
+  namespace: mariadb
+  labels:
+    app: maria-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maria-deployment
+  template:
+    metadata:
+      labels:
+        app: maria-deployment
+    spec:
+      containers:
+      - name: mariadb
+        image: busybox:latest
+        command: ['sh', '-c']
+        args: ['echo $(date) >> /var/lib/log/mariadb.log; sleep 3600']
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: mypassword
+        volumeMounts:
+        - name: mariadb-storage
+          mountPath: /var/lib/log
+      volumes:
+      - name: mariadb-storage
+        persistentVolumeClaim:
+          claimName: mariadb
