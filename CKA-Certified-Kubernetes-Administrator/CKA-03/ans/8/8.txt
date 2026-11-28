@@ -1,3 +1,0 @@
-k create deployment web-app --image busybox --replicas 2
-k autoscale deployment web-app --name web-app-hpa  --min 2 --max 10 --cpu 60%
-kubectl set resources deployment/web-app -c busybox --request=cpu=50m,memory=100Mi

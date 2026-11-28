@@ -1,4 +1,0 @@
-# Task notes and one-time local push approval are not committed by default.
-notes/*
-!notes/README.md
-.kiro/local/

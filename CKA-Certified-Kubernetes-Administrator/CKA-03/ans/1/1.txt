@@ -1,7 +1,0 @@
-k create sa backend-developer -n backend
-
-kubectl create rolebinding bd-pm --role=pod-manager --serviceaccount=backend:backend-developer -n backend 
-
-k auth can-i get pods --as=system:serviceaccount:backend:backend-developer -n backend 
-
-
